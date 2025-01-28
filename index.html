@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Formatter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+        }
+        .warning {
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #d9a94f;
+        }
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        input, select, button {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <p class="warning">Notka: Tekst jest automatycznie formatowany do potrzeb strony.</p>
+        <form id="formatterForm">
+            <input type="text" id="input1" placeholder="Szkola">
+            <select id="dropdown">
+                <option value="nauczyciel">Nauczyciel</option>
+                <option value="klasa">Klasa</option>
+                <option value="sala">Sala</option>
+            </select>
+            <input type="text" id="input2" placeholder="Nauczyciel/Klasa/Sala">
+            <button type="button" id="goButton">Dawaj plan!</button>
+        </form>
+    </div>
+
+    <script>
+        const polishToLatin = {
+            'ą': 'a', 'ć': 'c', 'ę': 'e', 'ł': 'l',
+            'ń': 'n', 'ó': 'o', 'ś': 's', 'ź': 'z', 'ż': 'z'
+        };
+
+        function formatText(text) {
+            return text
+                .toLowerCase()
+                .replace(/\s+/g, '-') // Replace spaces with dashes
+                .replace(/[ąćęłńóśźż]/g, char => polishToLatin[char] || char); // Polish to Latin
+        }
+
+        function handleInput(event) {
+            const input = event.target;
+            input.value = formatText(input.value);
+        }
+
+        // Attach formatting to both inputs
+        document.getElementById('input1').addEventListener('input', handleInput);
+        document.getElementById('input2').addEventListener('input', handleInput);
+
+        document.getElementById('goButton').addEventListener('click', () => {
+            const input1Value = formatText(document.getElementById('input1').value);
+            const dropdownValue = document.getElementById('dropdown').value;
+            const input2Value = formatText(document.getElementById('input2').value);
+
+            // Redirect to the formatted URL
+            const url = `/${input1Value}/${dropdownValue}/${input2Value}.html`;
+            window.location.href = url;
+        });
+    </script>
+
+</body>
+</html>
