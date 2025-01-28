@@ -4,41 +4,41 @@ body{
 	font:11px verdana,sans-serif;
 	overflow:auto;
 	margin:0}
-.tabtytul{ /* tabelka z grafik¹ (nag³ówek) */
+.tabtytul{ /* tabelka z grafikï¿½ (nagï¿½ï¿½wek) */
 	background-color:#a0b88a;
 	border-bottom:2px solid #808080}
-.tytul{ /* komórka z tytu³em */
-	background-color:#a0b88a;
+.tytul{ /* komï¿½rka z tytuï¿½em */
+	background-color:#6e7eb0;
 	color:#ffffff;
 	height:80px;
 	font:bold 36px verdana,sans-serif;
 	border-bottom:2px solid #c0c0c0;
 	text-align:center}
-.tytulnapis{ /* tytu³ strony z cieniem (tylko IE) */
+.tytulnapis{ /* tytuï¿½ strony z cieniem (tylko IE) */
 	padding-left:10px;width:400px;height:60px;filter:Shadow(Color=#666666,Direction=150)}
 .tabela{ /* tabela z planem */
 	border-color:#c0c0c0}
 td{
 	font-size:11px}
 th{
-	background-color:#cddac0;
-	color:#4b5f3a;
+	background-color:#b4a6d3;
+	color:#423a5f;
 	font-size:13px}
 td.g{ /* godzina */
-	background-color:#eff3ec;
-	color:#4b5f3a;
+	background-color:#bbb6db;
+	color:#3d4071;
 	font-weight:bold;
 	vertical-align:top;
 	text-align:center;
 	white-space:nowrap}
 td.nr{ /* numer lekcji */
-	background-color:#cddac0;
-	color:#4b5f3a;
+	background-color:#a09ac6;
+	color:#1f114b;
 	font-weight:bold;
 	text-align:center;
 	vertical-align:top}
 td.l{ /* lekcja */
-	background-color:#ffffff;
+	background-color:#cdc4ea;
 	color:#000000;
 	vertical-align:top}
 a.n{ /* nauczyciel */
@@ -53,6 +53,6 @@ a.k{ /* klasa */
 .op{ /* napis */
 	font:10px verdana,sans-serif}
 @media print{
-.tabtytul{ /* nag³ówek do druku */
+.tabtytul{ /* nagï¿½ï¿½wek do druku */
 	display:none}
 }
